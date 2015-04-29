@@ -14,6 +14,7 @@ angular.module('sailsAngJwtApp')
         email: $scope.email,
         password: $scope.password
       };
+      console.log(user);
     	$http.post(url, user)
 	    	.success(function (res){
 	    		console.log('done');
