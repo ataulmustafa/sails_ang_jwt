@@ -28,7 +28,8 @@ app.post('/register', function(req, res){
 	});
 
 	newUser.save(function(err){
-		res.status(200).json(newUser);
+//         toJSON function is used to hide password in User.js
+		res.status(200).send(newUser.toJSON());
 	})
 })
 

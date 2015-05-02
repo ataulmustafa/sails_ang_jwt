@@ -5,7 +5,14 @@ var bcrypt = require('bcrypt-nodejs');
 var UserSchema = new mongoose.Schema({
 	email: String,
 	password: String
-})
+});
+// Custom function created to hide password from console.
+UserSchema.methods.toJSON = function() {
+    var user = this.toObject();
+    delete user.password;
+    console.log(user);
+    return user;
+}
 
 // Create user model
 exports.model = mongoose.model('User', UserSchema);
@@ -25,4 +32,4 @@ UserSchema.pre('save', function(next){
 			next();
 		})
 	})
-})
+});
