@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var User = require('./models/User.js');
+var jwt = require('./services/jwt.js')
 // Create app
 var app = express();
 
@@ -17,8 +18,6 @@ app.use(function(req,res,next){
 });
 
 
-mongoose.connect('mongodb://localhost/psjwt');
-
 app.post('/register', function(req, res){
 	// console.log(req.body);
 	var user = req.body;
@@ -33,7 +32,12 @@ app.post('/register', function(req, res){
 	})
 })
 
+mongoose.connect('mongodb://localhost/psjwt');
+
+console.log(jwt.encode('hi', 'mysecret'));
+
+
 // Express app listening
-var server = app.listen(3000, function(){
-	console.log('api listening on ', server.address().port);
-})
+//var server = app.listen(3000, function(){
+//	console.log('api listening on ', server.address().port);
+//})
