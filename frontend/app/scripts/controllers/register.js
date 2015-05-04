@@ -1,6 +1,6 @@
 'use strict';
 angular.module('sailsAngJwtApp')
-  .controller('RegisterCtrl', function ($scope, $rootScope, $http, alert) {
+  .controller('RegisterCtrl', function ($scope, $rootScope, $http, alert,authToken) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -18,6 +18,7 @@ angular.module('sailsAngJwtApp')
     	$http.post(url, user)
 	    	.success(function (res){
 	    		console.log('done');
+            authToken.setToken(res.token);
           alert('success', 'Ok', ' You are now registered');
 	    	})
 	    	.error(function(err){
