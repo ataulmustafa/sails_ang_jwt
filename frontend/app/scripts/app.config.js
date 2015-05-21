@@ -15,5 +15,10 @@ angular.module('sailsAngJwtApp').config(function($urlRouterProvider, $stateProvi
 		url: '/register',
 		templateUrl: '/views/register.html',
 		controller: 'RegisterCtrl'
+	})
+    
+	.state('logout',{
+		url: '/logout',
+		controller: 'LogoutCtrl'
 	});
 })
