@@ -9,4 +9,4 @@
  * Main module of the application.
  */
 angular
-  .module('sailsAngJwtApp', ['ui.router']);
+  .module('sailsAngJwtApp', ['ui.router','ngAnimate']);

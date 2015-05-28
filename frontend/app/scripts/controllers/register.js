@@ -19,7 +19,7 @@ angular.module('sailsAngJwtApp')
 	    	.success(function (res){
 	    		console.log('done');
             authToken.setToken(res.token);
-          alert('success', 'Ok', ' You are now registered');
+          alert('success', 'Account Created!', ' Welcome, ' + res.user.email + '!');
 	    	})
 	    	.error(function(err){
 	    		console.log(err);
