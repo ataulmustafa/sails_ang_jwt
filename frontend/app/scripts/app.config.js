@@ -1,5 +1,5 @@
 'use strict';
-angular.module('sailsAngJwtApp').config(function($urlRouterProvider, $stateProvider){
+angular.module('sailsAngJwtApp').config(function($urlRouterProvider, $stateProvider, $httpProvider){
 
 	// If not found, go to root
 	$urlRouterProvider.otherwise('/');
@@ -27,4 +27,9 @@ angular.module('sailsAngJwtApp').config(function($urlRouterProvider, $stateProvi
 		url: '/logout',
 		controller: 'LogoutCtrl'
 	});
+    
+    // Push token by using interceptors
+    $httpProvider.interceptors.push('authInterceptor');
 })
+
+.constant('API_URL','http://localhost:3000/');

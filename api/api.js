@@ -42,6 +42,17 @@ app.post('/register', function(req, res){
 	})
 })
 
+var jobs = [
+'Cook','Shopkeeper','Director','Singer'
+];
+
+app.get('/jobs', function(req, res){
+    if(!req.headers.authorization){
+        return res.status(401).send({message: "You are not authorized."})
+    }
+        res.json(jobs);
+})
+
 mongoose.connect('mongodb://localhost/psjwt');
 
 //Testing jwt with test data
